@@ -1,0 +1,362 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f4f7fb;
+  background: #0a0c10;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(82, 96, 130, 0.16), transparent 38rem),
+    #0a0c10;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(129, 150, 255, 0.5);
+  outline-offset: 3px;
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 20px;
+}
+
+.generator-card {
+  width: min(100%, 600px);
+  padding: 38px;
+  border: 1px solid #272b34;
+  border-radius: 24px;
+  background: rgba(18, 21, 27, 0.96);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.brand-mark {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  color: #f5f7ff;
+  background: #6477f2;
+}
+
+.brand-mark svg,
+.button svg,
+.privacy-note svg {
+  width: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.eyebrow {
+  margin: 0 0 5px;
+  color: #8c96aa;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.45rem, 5vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.result-panel {
+  min-height: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 22px 24px;
+  margin-bottom: 27px;
+  border: 1px solid #333847;
+  border-radius: 16px;
+  background: #0c0f14;
+}
+
+.result-label {
+  margin: 0 0 11px;
+  color: #8790a2;
+  font-size: 0.76rem;
+}
+
+.password-output {
+  display: block;
+  color: #fff;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: clamp(1.55rem, 6vw, 2.25rem);
+  font-weight: 650;
+  letter-spacing: 0.075em;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.settings {
+  padding: 0 2px;
+}
+
+.setting-heading,
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.setting-heading label,
+.toggle-title {
+  color: #e9edf5;
+  font-size: 0.96rem;
+  font-weight: 650;
+}
+
+.length-value {
+  min-width: 76px;
+  padding: 8px 12px;
+  border: 1px solid #323744;
+  border-radius: 9px;
+  color: #aab5ff;
+  background: #171b23;
+  font-size: 1.05rem;
+  font-weight: 750;
+  text-align: center;
+}
+
+.length-value span {
+  margin-left: 4px;
+  color: #8c94a5;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.length-slider {
+  width: 100%;
+  height: 28px;
+  margin: 18px 0 0;
+  accent-color: #7587ff;
+  cursor: pointer;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -3px;
+  color: #737c8f;
+  font-size: 0.72rem;
+}
+
+.divider {
+  height: 1px;
+  margin: 24px 0;
+  background: #292e38;
+}
+
+.toggle-row {
+  min-height: 54px;
+  cursor: pointer;
+}
+
+.toggle-row > span:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.toggle-description {
+  color: #7f8899;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.76rem;
+}
+
+.switch {
+  position: relative;
+  flex: 0 0 auto;
+  width: 50px;
+  height: 28px;
+}
+
+.switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.switch-track {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #3b414d;
+  border-radius: 999px;
+  background: #242932;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+.switch-track::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #b2b8c3;
+  transition: transform 140ms ease, background 140ms ease;
+}
+
+.switch input:checked + .switch-track {
+  border-color: #7587ff;
+  background: #6477f2;
+}
+
+.switch input:checked + .switch-track::after {
+  transform: translateX(22px);
+  background: #fff;
+}
+
+.switch input:focus-visible + .switch-track {
+  outline: 3px solid rgba(129, 150, 255, 0.5);
+  outline-offset: 3px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.button {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, transform 80ms ease;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button-primary {
+  color: #fff;
+  background: #6477f2;
+}
+
+.button-primary:hover {
+  background: #7183fa;
+}
+
+.button-secondary {
+  border-color: #343a47;
+  color: #e8ebf2;
+  background: #20242d;
+}
+
+.button-secondary:hover {
+  border-color: #464d5d;
+  background: #282d37;
+}
+
+.button svg {
+  width: 19px;
+}
+
+.copy-feedback {
+  height: 20px;
+  margin: 10px 0 0;
+  color: #9eabff;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.privacy-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 12px 0 0;
+  color: #70798b;
+  font-size: 0.72rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.privacy-note svg {
+  flex: 0 0 auto;
+  width: 16px;
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    align-items: start;
+    padding: 20px 12px;
+  }
+
+  .generator-card {
+    padding: 25px 20px;
+    border-radius: 20px;
+  }
+
+  .card-header {
+    margin-bottom: 24px;
+  }
+
+  .brand-mark {
+    width: 46px;
+    height: 46px;
+  }
+
+  .result-panel {
+    min-height: 112px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
